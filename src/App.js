@@ -1,13 +1,14 @@
 import './App.css';
 import { useState, useEffect } from 'react'
 import SignUpLogin from './components/SignUp'
+import {Route, Routes} from  'react-router-dom';
+import Home from './Routes/Home'
+import Navigation from './Routes/Navigation';
+import Footer from './Routes/footer/Footer'
 
 function App() {
 
   const [books, setBooks] = useState('');
-  const [IsSignedUp, setIsSignedUp] = useState(false);
-
-
   useEffect(() => {
     fetchBooks();
   }, []);
@@ -24,9 +25,12 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <SignUpLogin IsSignedUp={IsSignedUp} />
-      <pre>{books.book}</pre>
+    <div className="container">
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }
