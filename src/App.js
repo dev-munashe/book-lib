@@ -5,31 +5,25 @@ import {Route, Routes} from  'react-router-dom';
 import Home from './Routes/Home'
 import Navigation from './Routes/Navigation';
 import Footer from './Routes/footer/Footer'
+import Comedy from './Routes/Comedy'
+import Action from './Routes/Action'
+import FairyTales from './Routes/FairyTales'
+import SignIn from './components/SignIn';
 
 function App() {
 
-  const [books, setBooks] = useState('');
-  useEffect(() => {
-    fetchBooks();
-  }, []);
-
-  const fetchBooks = async () => {
-    try {
-      const response = await fetch('https://localhost:7225/api/BooksLibraries/1');
-      const data = await response.json();
-      setBooks(data);
-    } catch (error) {
-      console.error(error);
-      console.log(`Failed because of error: ${error}`);
-    }
-  };
-
   return (
-    <div className="container">
+    <div >
       <Navigation />
+      <div className="container">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path='/comedy' element={<Comedy />} />
+        <Route path='/fairy-tales' element={<FairyTales />} />
+        <Route path='/Action' element={<Action />} />
+        <Route path='/SignIn' element={<SignIn />} />
       </Routes>
+      </div>
       <Footer />
     </div>
   );

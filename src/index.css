@@ -1,10 +1,11 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #EEEEEE;
 }
 
 code {
@@ -13,6 +14,10 @@ code {
 }
 
 * {box-sizing: border-box}
+
+.nav-link .active :hover{
+  color: red;
+}
 
 /* Add padding to containers */
 .container {
@@ -94,9 +99,20 @@ a {
   background-color: yellow;
   border-radius: 50%;
   position: relative;
-  left: 150px;
+  left: 130px;
   top: 0;
   z-index: -1;
+}
+
+@media (max-width: 600px) {
+  .bubble {
+    margin-top: 10px;
+    margin-left: 30px;
+    height: 200px;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .parent{
@@ -114,6 +130,8 @@ a {
 /*Body Page CSS*/
 .thumbnail {
   transition: transform 0.3s ease-in-out;
+  border: 1px;
+  width: 150px;
 }
 
 .thumbnail:hover {

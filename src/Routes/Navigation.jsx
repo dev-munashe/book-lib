@@ -10,7 +10,7 @@ const Navigation = ({itsClicked}) => {
   
   return (
     <div>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className="navbar navbar-expand-lg bg-body-tertiary mt-1">
   <div className="container-fluid">
     <img className="navbar-brand logo" src='/images/logo.png' />
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,6 +18,9 @@ const Navigation = ({itsClicked}) => {
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+      <li className="nav-item">
+          <Link to='/' className="nav-link active" aria-current="page">Home</Link>
+        </li>
         <li className="nav-item">
           <Link to='/popular' className="nav-link active" aria-current="page" href="#">Popular</Link>
         </li>
@@ -26,10 +29,10 @@ const Navigation = ({itsClicked}) => {
             BookType
           </a>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#">Comedy</a></li>
-            <li><a className="dropdown-item" href="#">Fairy Tales</a></li>
+            <li><Link className="dropdown-item" to='/comedy'>Comedy</Link></li>
+            <li><Link className="dropdown-item" to='/fairy-tales'>Fairy Tales</Link></li>
             <li><hr className="dropdown-divider" /></li>
-            <li><a className="dropdown-item" href="#">Action</a></li>
+            <li><Link className="dropdown-item" to='Action'>Action</Link></li>
           </ul>
         </li>
         <li className="nav-item">
@@ -37,7 +40,7 @@ const Navigation = ({itsClicked}) => {
         </li>
       </ul>
       <div>
-        <button onClick={itsClicked} className='btn btn-outline-info'><Link style={{textDecoration: 'none'}} to='/sign-up' >Logout</Link></button>
+        <button onClick={itsClicked} className='btn btn-outline-info'><Link style={{textDecoration: 'none'}} to='/' >SignUp</Link></button>
       </div>
     </div>
   </div>

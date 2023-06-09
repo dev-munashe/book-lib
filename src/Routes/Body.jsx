@@ -20,7 +20,6 @@ const Body = () => {
       .then((response) => {
         debugger;
         setBookResult(response.data.items);
-        console.log(response.data.items);
         setLoading(false);
       })
       .catch((error) => {
@@ -59,7 +58,8 @@ const Body = () => {
 
       <div className='col-lg-6 parent'>
         <div className='bubble'></div>
-        <img alt='home-img' className='home-img' src='./images/home.png' />
+
+        <img alt='home-img' className='home-img img-fluid' src='./images/home.png' />
       </div>
     </div>
     {loading ? (

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import SearchResult from '../search/SearchResult'
 
 const Popular = () => {
 
@@ -14,10 +15,9 @@ const Popular = () => {
   const fetchPopularBooks = async () => {
     try {
       const response = await axios
-      .get(`https://www.googleapis.com/books/v1/volumes?q=philosophy&filter=free-ebooks&key=${apiKey}&maxResults=40`);
+      .get(`https://www.googleapis.com/books/v1/volumes?q=flower+harry+potter+philosophy&filter=free-ebooks&key=${apiKey}&maxResults=40`);
       console.log(response);
       setPopularBooks(response.data.items);
-      console.log(response.data.items);
     }
     catch (error) {
       console.log(`Error fetching popular books: ${error}`);
@@ -26,9 +26,16 @@ const Popular = () => {
 
   return (
     <div>
-        <h1 className='App mt-3 mb-3'>Popular books</h1>
-        
-        <button className='btn btn-outline-info'><Link to='/' >Go to Home</Link></button>
+        <h1 style={{fontWeight: '500'}} className='App mt-3 mb-3'>Popular books</h1>
+        {
+          popularBooks.map((book, index) => (
+            <a target='_blank' href={book.volumeInfo.previewLink} >
+               {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ?
+            <SearchResult alt={book.title} key={index} src={book.volumeInfo.imageLinks.thumbnail} /> 
+            : <SearchResult alt={book.title} key={index} src='' />}
+            </a>
+          ))
+        }
     </div>
   )
 }
