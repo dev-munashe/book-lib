@@ -7,7 +7,7 @@ const Popular = () => {
 
   const [popularBooks, setPopularBooks] = useState([]);
   const apiKey = 'AIzaSyDSVIO8ay-79Ig1omh_d1Ec_KY4KYjYwWU';
-  
+  const [error, setError] = useState('');
   useEffect(() => {
     fetchPopularBooks();
   }, []);
@@ -20,7 +20,7 @@ const Popular = () => {
       setPopularBooks(response.data.items);
     }
     catch (error) {
-      console.log(`Error fetching popular books: ${error}`);
+      setError(`${error}`);
     }
   };
 
@@ -28,6 +28,9 @@ const Popular = () => {
     <div>
         <h1 style={{fontWeight: '500'}} className='App mt-3 mb-3'>Popular books</h1>
         {
+          error ? (
+            <p className='text-center' style={{color: 'red'}}>Apologies you have reached the maximum amount of requests, please come back later.<br/> {error}</p>
+          ) :
           popularBooks.map((book, index) => (
             <a target='_blank' href={book.volumeInfo.previewLink} >
                {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ?

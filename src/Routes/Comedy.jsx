@@ -7,6 +7,7 @@ const Comedy = () => {
 
     const [comedyBooks, setComedyBooks] = useState([]);
     const apiKey = 'AIzaSyDSVIO8ay-79Ig1omh_d1Ec_KY4KYjYwWU';
+    const [error, setError] = useState('');
 
     useEffect(() => {
         fetchBooks();
@@ -20,7 +21,7 @@ const Comedy = () => {
             console.log(response.data.items)
         }
         catch (error) {
-            console.log(`The error says : ${error}`);
+            setError(`${error}`);
         }
     };
 
@@ -30,7 +31,11 @@ const Comedy = () => {
         <p style={{fontWeight:'700'}} className='mb-3 mt-3'>Comedy is a genre of fiction that consists of discourses or works intended to be 
         humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, 
         books, or any other entertainment medium.</p>
-        <Row>
+        {
+            error ? (
+                <p className='text-center' style={{color: 'red'}}>Apologies you have reached the maximum amount of requests, please come back later.<br/> {error}</p>
+              ) :
+            <Row>
         {comedyBooks.map((book, index) => (
             <Col key={index} lg={3} md={6} sm={12}>
                 <Card>
@@ -47,7 +52,7 @@ const Comedy = () => {
                 </Card>
             </Col>
         ))}
-    </Row>
+    </Row>}
     </div>
   )
 }

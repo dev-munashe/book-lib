@@ -67,7 +67,7 @@ const Body = () => {
         ) : (
           <>
             {error ? (
-              <p style={{color: 'red'}}>Error: {error}</p>
+             <p className='text-center' style={{color: 'red'}}>Apologies you have reached the maximum amount of requests, please come back later.<br/> {error}</p>
             ) : (
               <>
                 {bookResult.length > 0 ? (

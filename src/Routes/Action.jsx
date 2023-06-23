@@ -6,7 +6,8 @@ import { Card, Row, Col } from 'react-bootstrap';
 
 const Action = () => {
 
-    const [actionBooks, setActionBooks] = useState([])
+    const [actionBooks, setActionBooks] = useState([]);
+    const [error, setError] = useState('');
     const apiKey = 'AIzaSyDSVIO8ay-79Ig1omh_d1Ec_KY4KYjYwWU';
 
     useEffect(() => {
@@ -15,13 +16,12 @@ const Action = () => {
 
     const fetchBooks = async() => {
         try{
-            const response = await axios.
-            get(`https://www.googleapis.com/books/v1/volumes?q=action&printType=magazines&key=${apiKey}&maxResults=40`);
+            const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=action&printType=magazines&key=${apiKey}&maxResults=40`);
             setActionBooks(response.data.items);
             console.log(response.data.items)
         }
         catch (error) {
-            console.log(`The error says : ${error}`);
+            setError(`${error}`);
         }
     };
 
@@ -31,6 +31,9 @@ const Action = () => {
         <p style={{fontWeight:'700'}} className='mb-3 mt-3'>Action fiction is a form of genre fiction whose subject matter is characterized by 
             emphasis on exciting action sequences.This does not always mean they exclude character 
             development or story-telling.</p>
+        { error ? (
+              <p className='text-center' style={{color: 'red'}}>Apologies you have reached the maximum amount of requests, please come back later.<br/> {error}</p>
+            ) : 
         <Row>
         {actionBooks.map((book, index) => (
             <Col key={index} lg={3} md={6} sm={12}>
@@ -48,7 +51,7 @@ const Action = () => {
                 </Card>
             </Col>
         ))}
-    </Row>
+    </Row>}
     </div>
   )
 }

@@ -8,6 +8,7 @@ const Recommendation = () => {
 
   const [recoBooks, setRecoBooks] = useState([]);
   const apiKey = 'AIzaSyDSVIO8ay-79Ig1omh_d1Ec_KY4KYjYwWU';
+  const [error, setError] = useState('');
   
   useEffect(() => {
     fetchPopularBooks();
@@ -22,7 +23,7 @@ const Recommendation = () => {
       console.log(response.data.items);
     }
     catch (error) {
-      console.log(`Error fetching popular books: ${error}`);
+      setError(`${error}`);
     }
   };
 
@@ -30,6 +31,9 @@ const Recommendation = () => {
     <div>
       <h1 className='App mt-3 mb-3' >Recommendation</h1>
       {
+        error ? (
+          <p className='text-center' style={{color: 'red'}}>Apologies you have reached the maximum amount of requests, please come back later.<br/> {error}</p>
+        ) :
           recoBooks.map((book, index) => (
             <a target='_blank' href={book.volumeInfo.previewLink} >
                {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ?

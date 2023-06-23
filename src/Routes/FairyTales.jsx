@@ -7,6 +7,7 @@ const FairyTales = () => {
 
     const [fairyBooks, setFairyBooks] = useState([]);
     const apiKey = 'AIzaSyDSVIO8ay-79Ig1omh_d1Ec_KY4KYjYwWU';
+    const [error, setError] = useState('');
 
     useEffect(() => {
         fetchBooks();
@@ -20,7 +21,7 @@ const FairyTales = () => {
             console.log(response.data.items)
         }
         catch (error) {
-            console.log(`The error says : ${error}`);
+            setError(`${error}`);
         }
     };
 
@@ -30,6 +31,10 @@ const FairyTales = () => {
         <p style={{fontWeight:'700'}} className='mb-3 mt-3'>A fairytale is a Genre of magical story, usually 
         originating in folklore. Typically in European fairy tales, a poor, brave, and resourceful hero or 
         heroine goes through testing adventures to eventual good fortune. (fairy tale).</p>
+       {
+        error ? (
+            <p className='text-center' style={{color: 'red'}}>Apologies you have reached the maximum amount of requests, please come back later.<br/> {error}</p>
+          ) :
         <Row>
         {fairyBooks.map((book, index) => (
             <Col key={index} lg={3} md={6} sm={12}>
@@ -47,7 +52,7 @@ const FairyTales = () => {
                 </Card>
             </Col>
         ))}
-    </Row>
+    </Row>}
     </div>
   )
 }
