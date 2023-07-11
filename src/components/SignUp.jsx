@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SignIn from './SignIn';
 
 const SignUpLogin = () => {
 
@@ -10,7 +9,6 @@ const SignUpLogin = () => {
     password: '',
   });
 
-  const [isSuccessful, setIsSuccessful] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
   function handleChange(e) {
@@ -38,7 +36,6 @@ const SignUpLogin = () => {
             //handle the success response
             console.log(data);
             //redirect to home page
-            setIsSuccessful(true)
           })
           .catch(error =>{
             //handle any errors
@@ -60,42 +57,45 @@ const SignUpLogin = () => {
   };
 
   return (
-    <div className='App mt-5'>
-        <h1>Register</h1>
-        <form action="Post" onSubmit={handleSubmit}>
-        <div className='mb-3 mt-3'>
-            <label type="text"  htmlFor=""><b>Username</b></label>
-            <input style={{backgroundColor:'#FFF8DE'}} name='userName' type='text' onChange={handleChange} value={formData.userName} />
+    <div className='App'>
+      <div className='m-auto form-signin'>
+        <h1 className='h1 mb-3 mt-5 fw-normal'>Register</h1>
+        <form onSubmit={handleSubmit}>
+        <div className='mb-3 mt-3 form-floating w-100'>
+            <input id="floatingInput" className='form-control' style={{backgroundColor:'#FFF8DE'}} name='userName' type='text' onChange={handleChange} value={formData.userName} />
+            <label type="text"  htmlFor="floatingInput"><b>Username</b></label>
         </div>
 
-        <div className='mb-3'>
+        <div className='mb-3 form-floating w-100'>
+            <input className='form-control' style={{backgroundColor:'#FFF8DE'}} type='email' name='email' onChange={handleChange} value={formData.email} />
             <label type="email"  className='ms-3'><b>Email</b></label>
-            <input style={{backgroundColor:'#FFF8DE'}} type='email' name='email' onChange={handleChange} value={formData.email} />
         </div>
-        <div className="mb-3">
-            <label htmlFor="psw-repeat"><b>Password</b></label>
+        <div className="mb-3 form-floating w-100">
             <input style={{backgroundColor:'#FFF8DE'}} type='password' 
             value={formData.password} 
             onChange={handleChange} 
             name='password' 
             title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or 
             more characters" 
+            className='form-control'
+            id='floatingPassword'
             required/>
+            <label htmlFor="floatingPassword"><b>Password</b></label>
         </div>
 
         <div>
-        <button className='btn btn-primary registerbtn' type='submit'>Register</button>
+        <button className='btn btn-lg btn-warning' type='submit'>Register</button>
         </div>
 
-        {errorMessage && <div style={{color: 'red'}} className='error-message'>{errorMessage}</div>}
+        {errorMessage && <div style={{color: 'red'}} className='error-message'>There is an error with signing you up. Please try again. <br/>{errorMessage}</div>}
 
-        <div className="container signin">
-    <p>Already have an account? <Link to="/SignIn">Sign in</Link>.</p>
-  </div>
-
-    </form>
-    {isSuccessful ? <SignIn /> : null}
+        </form>
     </div>
+    <div className="container signin">
+    <p>Already have an account? <Link to="/Login">Sign in</Link>.</p>
+  </div>
+    </div>
+    
   )
 }
 

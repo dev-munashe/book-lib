@@ -2,7 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchResult from '../search/SearchResult';
-import { Link } from 'react-router-dom';
 
 const Recommendation = () => {
 

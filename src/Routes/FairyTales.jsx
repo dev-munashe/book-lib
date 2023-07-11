@@ -15,8 +15,8 @@ const FairyTales = () => {
 
     const fetchBooks = async() => {
         try{
-            const response = await axios.
-            get(`https://www.googleapis.com/books/v1/volumes?q=fairy+tales&printType=magazines&key=${apiKey}&maxResults=40`);
+            const response = await axios
+            .get(`https://www.googleapis.com/books/v1/volumes?q=fairy+tales&printType=magazines&key=${apiKey}&maxResults=40`);
             setFairyBooks(response.data.items);
             console.log(response.data.items)
         }

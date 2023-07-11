@@ -1,6 +1,4 @@
 import './App.css';
-import { useState, useEffect } from 'react'
-import SignUpLogin from './components/SignUp'
 import {Route, Routes} from  'react-router-dom';
 import Home from './Routes/Home'
 import Navigation from './Routes/Navigation';
@@ -8,7 +6,8 @@ import Footer from './Routes/footer/Footer'
 import Comedy from './Routes/Comedy'
 import Action from './Routes/Action'
 import FairyTales from './Routes/FairyTales'
-import SignIn from './components/SignIn';
+import Login from './components/Login';
+import SignUp from './components/SignUp'
 
 function App() {
 
@@ -21,7 +20,8 @@ function App() {
         <Route path='/comedy' element={<Comedy />} />
         <Route path='/fairy-tales' element={<FairyTales />} />
         <Route path='/Action' element={<Action />} />
-        <Route path='/SignIn' element={<SignIn />} />
+        <Route path='/Login' element={<Login />} />
+        <Route path='/SignUp' element={<SignUp />} />
       </Routes>
       </div>
       <Footer />

@@ -1,10 +1,7 @@
-import React, { useState } from 'react'
 import {Link, Route, Routes} from  'react-router-dom';
-import SignIn from '../components/SignIn';
 import Popular from './popular/Popular';
 import Recommendation from './recommendation/Recommendation';
 import SignUpLogin from '../components/SignUp';
-import Home from './Home';
 
 const Navigation = ({itsClicked}) => {
   
@@ -12,7 +9,7 @@ const Navigation = ({itsClicked}) => {
     <div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary mt-1">
   <div className="container-fluid">
-    <img className="navbar-brand logo" src='/images/logo.png' />
+    <img className="navbar-brand logo" alt='logo' src='/images/logo.png' />
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -40,7 +37,7 @@ const Navigation = ({itsClicked}) => {
         </li>
       </ul>
       <div>
-        <button onClick={itsClicked} className='btn btn-outline-info'><Link style={{textDecoration: 'none'}} to='/' >SignUp</Link></button>
+        <button onClick={itsClicked} className='btn btn-outline-info'><Link style={{textDecoration: 'none'}} to='/SignUp' >SignUp</Link></button>
       </div>
     </div>
   </div>

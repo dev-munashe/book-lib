@@ -24,30 +24,6 @@ code {
   padding: 16px;
 }
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 30%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-input[type=text], input[type=email] {
-  width: 30%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
 /* Overwrite default styles of hr */
 hr {
   border: 1px solid #f1f1f1;
@@ -136,4 +112,26 @@ a {
 
 .thumbnail:hover {
   transform: scale(1.1);
+}
+
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
