@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Book Library Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Book Library Application! This React application allows you to search for books using the Google Books API. You can explore a wide range of books, view thumbnails, and navigate to the Google Books app to discover more about each book.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+. Search Books: Enter the title of the book you're looking for in the search box and click search to find relevant books.
 
-### `npm start`
+. Navigation Menu: Access different sections of the app including recommendations, popular books, and filter books by type (action, comedy, fairy tale) using the navigation menu.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+. Thumbnail View: View book thumbnails and click on them to navigate to the Google Books app for more information.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+To run the application locally, follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository to your local machine.
+2. Navigate to the project directory in your terminal.
+3. Run ### 'npm install' to install the necessary dependencies.
+4. After installing dependencies, run ### 'npm start' to start the development server.
+5. Open your browser and navigate to [htpp://localhost:3000] to view the app.
 
-### `npm run build`
+## Authentication(Work in Progress)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Authentication using ASP.NET Core as the backend is currently a work in progress. Stay tuned for updates on this feature.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used
+. React
+. Google Books API
+.ASP.NET Core(for backend authentication-upcoming feature)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributing
+Contributions are welcome! If you encounter any bugs, have suggestions for improvements, or want to add new features, feel free to open an issue or submit a pull request.
 
-### `npm run eject`
+## License
+This project is licensed under the MIT License.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Deployment
+This project is also deployed on vercel. Just open this url: https://book-lib-2uae.vercel.app/
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Preview
+See a preview here:
+<img width="921" alt="image" src="https://github.com/dev-munashe/book-lib/assets/109471294/e7d926e8-79f8-4134-9171-712cc113f706">
